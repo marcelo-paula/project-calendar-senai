@@ -5,10 +5,10 @@ async function getAllCalendar(req, res){
     try {
         const year = req.params.year
         const getAllCalendar = await calendarModel.getAllCalendar(year)
-        res.send(getAllCalendar)
+        res.status(200).json({error: false, data: getAllCalendar})
     } catch (error) {
         res.status(401)
-        res.send(error.message)
+        res.json({error: error.message, data: false})
     }
 }
 
@@ -17,10 +17,10 @@ function getCalendarControllerID(req, res){
     try {
         const id = req.params.id
         const getCalendarControllerID = calendarModel.getCalendarID(id)
-        res.send(getCalendarControllerID)
+        res.status(200).json({error: false, data: getCalendarControllerID})
     } catch (error) {
         res.status(401)
-        res.send(error.message)
+        res.json({error: error.message, data: false})
     }
 }
 
@@ -28,11 +28,11 @@ function getCalendarControllerID(req, res){
 async function postCalendarController(req, res){
     try {
         const year = req.params.year
-        await calendarModel.postCalendar(year)
-        res.status(200).send("Arquivo inserido com sucesso!")
+        const postCalendar = await calendarModel.postCalendar(year)
+        res.status(200).json({error: false, data: postCalendar})
     } catch (error) {
         res.status(401)
-        res.send(error.message)
+        res.json({error: error.message, data: false})
     }
 }
 
@@ -40,11 +40,11 @@ async function postCalendarController(req, res){
 async function pathCalendarController(req, res){
     try {
         const id = req.params.id
-        await calendarModel.pathCalendar(id)
-        res.status(200).send("Arquivo atualizado com sucesso!")
+        const pathCalendar = await calendarModel.pathCalendar(id)
+        res.status(200).json({error: false, data: pathCalendar})
     } catch (error) {
         res.status(401)
-        res.send(error.message)
+        res.json({error: error.message, data: false})
     }
 }
 
@@ -52,10 +52,10 @@ async function pathCalendarController(req, res){
 async function deleteCalendarController(req, res){
     try {
         const id = req.params.id
-        await calendarModel.deleteCalendar(id)
-        res.status(200).send("Arquivo excluido com sucesso!")
+        const deleteCalendar = await calendarModel.deleteCalendar(id)
+        res.status(200).json({error: false, data: deleteCalendar})
     } catch (error) {
-        res.status(401).send(error.message)
+        res.json({error: error.message, data: false})
     }
 }
 

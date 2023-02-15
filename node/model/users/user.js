@@ -43,13 +43,16 @@ async function postUsers(insertUser) {
 
 // atualizar registro
 async function pathUsers(updateUser, id){
-    const hashedPassword = await bcrypt.hash(updateUser.password, saltRounds);
-    const updatedUser = await tableUser.update(
-        {
-            name: updateUser.name,
-            email: updateUser.email,
-            password: hashedPassword
-        },
+    let altera = {
+        name: updateUser.name,
+        email: updateUser.email
+    }
+
+    if(updateUser.password) {
+        altera.password = await bcrypt.hash(updateUser.password, saltRounds)
+    }
+
+    const updatedUser = await tableUser.update(altera,
         {
             where: {
                 id: id

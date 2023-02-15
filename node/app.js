@@ -6,6 +6,9 @@ const cors = require("cors")
 const routerUser = require("./router/user")
 require("./model/users/tableUser")
 
+// Rotas de login
+const routerLogin = require("./router/login")
+
 //calendar
 const routerCalendar = require("./router/calendar")
 require("./model/calendar/tableCalendar")
@@ -41,6 +44,7 @@ app.use(function (req, res, next) {
 // Define a rota
 app.use('/calendar', routerCalendar)
 app.use('/user', routerUser)
+app.use('/login', routerLogin)
 
 // roda na porta 8000 ou 3000
 const port = 8000 || 3000
