@@ -1,8 +1,14 @@
 const http = require("http")
 const express = require("express")
-const routerCalendar = require("./router/calendar")
 const cors = require("cors")
-require("./model/tableCalendar")
+
+// Users
+const routerUser = require("./router/user")
+require("./model/users/tableUser")
+
+//calendar
+const routerCalendar = require("./router/calendar")
+require("./model/calendar/tableCalendar")
 
 const app = express()
 
@@ -23,7 +29,6 @@ app.use(function (req, res, next) {
 //valida o banco de dados
 (async () => {
     const dataBase = require("./bd/db")
-    const Calendar = require("./model/tableCalendar")
 
     try {
         const result = await dataBase.sync()
@@ -35,6 +40,7 @@ app.use(function (req, res, next) {
 
 // Define a rota
 app.use('/calendar', routerCalendar)
+app.use('/user', routerUser)
 
 // roda na porta 8000 ou 3000
 const port = 8000 || 3000

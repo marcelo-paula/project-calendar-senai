@@ -1,5 +1,6 @@
 const Sequelize = require("sequelize")
-const dataBase = require("../bd/db")
+const dataBase = require("../../bd/db")
+const user = require("../users/tableUser")
 
 const Calendar = dataBase.define('calendar', {
     year:{
@@ -10,6 +11,10 @@ const Calendar = dataBase.define('calendar', {
         type: Sequelize.TEXT,
         allowNull: false
     }
+})
+
+Calendar.belongsTo(user, {
+    foreignKey: 'id_user'
 })
 
 Calendar.sync({

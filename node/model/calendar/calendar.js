@@ -50,7 +50,7 @@ async function postCalendar(year){
         processa(year).then(dados => {
             return JSON.stringify(dados)
         }).then(json => {
-            const newCalendar = tableCalendar.create({
+            return tableCalendar.create({
                 year: year,
                 description: json
             })
@@ -62,13 +62,20 @@ async function postCalendar(year){
 }
 
 // Atualizar um registro
-function pathCalendar(id){
-
+async function pathCalendar(id){
+    return await tableCalendar.update(
+        { nome: 'Novo Nome' }, // Objeto com os valores a serem atualizados
+        { where: { id: 1 } } // Objeto com as opções de busca
+    );
 }
 
 // Deleta um registro
-function deleteCalendar(id){
-
+async function deleteCalendar(id){
+    return await tableCalendar.destroy({
+        where : {
+            id: id
+        }
+    })
 }
 
 module.exports = {

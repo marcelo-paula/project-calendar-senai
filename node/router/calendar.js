@@ -22,6 +22,6 @@ router.post('/:year', postCalendarController)
 router.patch('/:id', pathCalendarController)
 
 // // Deletar um registro
-router.delete('/', deleteCalendarController)
+router.delete('/:id', deleteCalendarController)
 
 module.exports = router

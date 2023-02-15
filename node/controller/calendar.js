@@ -1,4 +1,4 @@
-const calendarModel = require("../model/calendar")
+const calendarModel = require("../model/calendar/calendar")
 
 // Listar todos
 async function getAllCalendar(req, res){
