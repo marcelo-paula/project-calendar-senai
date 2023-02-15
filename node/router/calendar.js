@@ -10,7 +10,7 @@ const {
 const router = Router()
 
 //Listar todos os calendários
-router.get('/', getAllCalendar)
+router.get('/:year', getAllCalendar)
 
 //Listar apenas um dia espeficico
 router.get('/:id', getCalendarControllerID)

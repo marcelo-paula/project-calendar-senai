@@ -3,7 +3,8 @@ const calendarModel = require("../model/calendar")
 // Listar todos
 async function getAllCalendar(req, res){
     try {
-        const getAllCalendar = calendarModel.getAllCalendar()
+        const year = req.params.year
+        const getAllCalendar = await calendarModel.getAllCalendar(year)
         res.send(getAllCalendar)
     } catch (error) {
         res.status(401)

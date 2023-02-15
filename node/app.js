@@ -2,6 +2,7 @@ const http = require("http")
 const express = require("express")
 const routerCalendar = require("./router/calendar")
 const cors = require("cors")
+require("./model/tableCalendar")
 
 const app = express()
 
