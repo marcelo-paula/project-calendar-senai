@@ -63,6 +63,86 @@ body {
     color: #007bff;
 }
 
+/* dash */
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #cc0000;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidebar a {
+    padding: 10px 10px 10px 30px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #ffffff;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+.content {
+    margin-left: 250px;
+    padding: 20px;
+}
+
+.form-control:focus {
+    border-color: #cc0000;
+    box-shadow: none;
+}
+
+.btn-primary {
+    background-color: #cc0000;
+    border-color: #cc0000;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e60000;
+    border-color: #e60000;
+}
+
+th {
+    text-align: left;
+    font-weight: bold;
+}
+
+.table {
+    margin-top: 20px;
+}
+
+.table thead th {
+    background-color: #cc0000;
+    color: #ffffff;
+    border: none;
+    font-size: 18px;
+    text-align: center;
+    padding: 10px;
+}
+
+.table tbody td {
+    border: none;
+    font-size: 16px;
+    text-align: center;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+/* fim dash */
+
 @media (max-width: 1000px){
     .form-buttons{
         display: block;
